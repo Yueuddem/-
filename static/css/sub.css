@@ -1,0 +1,98 @@
+
+.main{padding: 2.99vh 3.13vw 3.98vh;display: flex;flex-direction: column;justify-content: space-between;min-height: 100%;}
+.logo{display:inline-block;width:12.667rem;height:2.333rem;background: url(../images/h1-logo.png) no-repeat 0 0;background-size:auto 100%;font-size: 0;}
+.logoArea{text-align: center;}
+.main .mTitle{text-align: center;margin-top: 7.96vh}
+.main .mTitle img{width:20rem}
+.mainVs{margin: 10vh auto 5.5vh;max-width: 25rem;text-align: center;}
+.btmBtn{display: flex;justify-content: center;}
+.sub{padding: 2.99vh 3.13vw 3.98vh;display: flex;flex-direction: column;justify-content: space-between;min-height: 100%;}
+.subSection{padding-bottom: 2.99vh}
+.subTitle1{text-align: center;margin-top: 2.99vh;}
+.subTitle1 img{width: 12.667rem;}
+.tx1{font-size: 1rem;line-height: 1.3;}
+.tx2{font-size: 1.067rem;line-height: 1.263;}
+.tx3{font-size: 1.133rem;line-height: 1.2;}
+.st{font-size: 1.040rem;line-height: 1.375;}
+.subSectCont01{padding-top:10.667rem;background: url(../images/s-img1-m.png) no-repeat 50% 0;background-size: auto 10rem;margin-top: 1.49vh;}
+.subSectCont01 .tx1{margin-top: 5.73vw;font-weight: 100;}
+.subSectCont01 .tx2{font-weight: 500;margin-top: 5.73vw;}
+.subHeader{display: flex;justify-content: space-between;align-items: center;margin-bottom: 2.99vh;}
+.subHeader__logo{width: 9.2rem;height: 1.8rem;background: url(../images/h1-logo.png) no-repeat 0 50%;background-size: auto 100%;}
+.subHeader__logo__link{display: block;width: 100%;height: 100%;font-size: 0;}
+.subHeader__tit{width: 9rem;height:2.133rem;background: url(../images/s-title2-m.png) no-repeat 100% 50%;font-size:0;background-size: auto 100%;}
+.subTitle2{margin:0 -3.13vw;height: 4.867rem;padding-left: 8.533rem;background: url(../images/s-img2-m.png) no-repeat 3.13vw 50%;background-size: auto 100%;display: flex;align-items: center;font-size: 1.3rem;font-weight: 700;color:var(--hc1);line-height: 1.15;position: relative;}
+.subTitle2::before{content: '';display: block;position: absolute;left:0;top:50%;transform: translateY(-50%);width: 100%;height:76.76%;background-color: #eef1f5;border-bottom: 1px solid #0055a6;z-index: -1;}
+.qTitle{display: flex;margin-top:2rem}
+.qTitle__num{display: flex;justify-content:center;align-items: center;width: 3rem;height: 3rem;background-color: var(--hc1);color:#fff;font-size: 1.567rem;font-weight: 500;}
+.qTitle__que{width: calc(100% - 3rem);padding-left: 0.667rem;min-height: 3rem;line-height: 1.375;word-break: keep-all;display: flex;justify-content: center;;flex-direction: column}
+.qTitle__que sub{font-size: 0.65rem;color:#888;position: relative;top:0.5rem}
+.rowLists{margin-top:1.333rem;border-bottom: 1px solid #949494}
+.rowLists .row{border: 1px solid #949494;border-bottom: 0;}
+.rowLists .row{position: relative;}
+.rowLists .row::after{content: '';display: block;width: 1px;height: 100%;background-color: #949494;position: absolute;top:0;left:3rem}
+.rowLists .aCheck{display: table;width: 100%;}
+.rowLists .aCheck__label{display: table-cell;width: 100%;height: 100%;vertical-align: middle;}
+.rowLists.col2{display: flex;flex-wrap: wrap;}
+.rowLists.col2 .row{width: 50%;}
+.rowLists.col2 .row:nth-child(2n){border-left: 0;}
+.rowLists__noti{font-size: 0.75rem;color:#888;line-height: 1.3;margin-top:1rem;display: flex;word-break: break-all;}
+.rowLists__noti .num{margin-right: 5px;}
+
+.subSection02 .textarWrap{margin-top: 1.333rem;}
+.subSection02 .textar{min-height: 49vh}
+.subSectionEnd{display: flex;flex-direction: column;justify-content: center;flex:1;align-items: center;}
+.subSection03{margin: 11.44vh 0;}
+.subSection03 img{width: 16.333rem;}
+.layerPopWrap{position: fixed;top:0;left:0;width: 100%;height: 100%}
+.layerPopWrap .dim{position: fixed;top:0;left:0;width: 100%;height: 100%;background: rgba(27,70,113,0.9);}
+.layerPopWrap .layerPop{position: absolute;top:50%;left:50%;transform: translate(-50%,-50%);background-color: #fff;width: 68%;padding:1.333rem 1rem;border-radius: 1rem;}
+.layerPopWrap .layer__btns{display: flex;justify-content: center;margin-top: 2rem;}
+.layerPopWrap .layerPop__img{width:100%;height: 10.333rem;background: url(../images/s-img-pop.png) no-repeat 50% 50%;background-size: auto 100%;margin:1rem 0}
+.layerPopWrap .tx{font-size: 1.567rem;color:var(--hc1);text-align: center;line-height: 1.35;font-weight: 700;}
+.layerPopWrap .layer__btns .btnTy1{width: 11rem;}
+
+@media (min-width:750px) {    
+    .mo--only{display: none;}
+    .subTitle2{padding-left: 10rem;}
+    .layerPopWrap .layerPop{width: 40vw;padding:2rem 1rem;}
+    
+}
+
+@media (min-width:1024px) {
+    .main{padding: 4.38vh 7.50vw}
+    .logo{width: 19.22vw;height: 3.67vw;}
+    .main .mTitle{margin-top: 8.75vh;}
+    .main .mTitle img{width:68.79vw}
+    .mainVs{width: 37.15vw;margin:7.5vh auto 8.75vh}
+    .sub{padding: 4.38vh 4.3vw}
+    .subTitle1{margin-top: 8.75vh;}
+    .subTitle1 img{width: 68.79vw;}
+    .subSectCont01{padding-top:0;padding-left: 28.13vw;background: url(../images/s-img1-m.png) no-repeat 7.42vw 0;background-size: auto 15.23vw;margin-top: 5.47vw;padding-right:5vw}
+    .tx1{font-size: 1.48vw;line-height: 1.3;}
+    .tx2{font-size: 1.56vw;line-height: 1.263;}
+    .tx3{font-size: 1.72vw;line-height: 1.2;}
+    .subSectCont01 .tx1{margin-top:2.49vh;}
+    .subSectCont01 .tx2{margin-top:2.49vh;}
+    .subHeader{margin-bottom: 4.38vh;}
+    .subHeader__logo{width: 19.92vw;height: 3.63vw;} 
+    .subHeader__tit{width: 27.73vw;height: 1.95vw;background: url(../images/s-title2.png) no-repeat 100% 50%;background-size: 100% auto}
+    .subTitle2{margin:0 -4.3vw;height: 7.38vw;padding-left: 14.77vw;background: url(../images/s-img2.png) no-repeat 2.42vw 50%;background-size: auto 100%;font-size: 1.95vw;font-weight: 700;}
+    .subTitle2::before{z-index: -1;}
+    .qTitle{margin-top:2.93vw;align-items: center;}
+    .qTitle__num{width: 4.3vw;height: 4.3vw;font-size: 2.34vw;}
+    .qTitle__que{width: calc(100% - 4.3vw);padding-left:1.17vw;}
+    .rowLists{margin-top:2.15vw;}
+    .rowLists .row::after{left:4.3vw}
+    .subSectionEnd{justify-content:flex-start}
+    .subSection03{margin: 16.25vh 0 0;}
+    .subSection03 img{width: 24.61vw;}
+    .subSection02 .textar{min-height: 45vh;}
+}
+
+@media (min-width:1280px) {
+    .layerPopWrap .layerPop{padding: 2.93vw 1vw 2.93vw;}   
+    .layerPopWrap .tx{font-size:2.3vw}
+    .layerPopWrap .layerPop{width: 25vw;}
+    
+}

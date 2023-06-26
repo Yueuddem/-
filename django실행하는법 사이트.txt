@@ -1,0 +1,17 @@
+C:\Users\dhema\PycharmProjects\ 파이참 주소
+
+https://076923.github.io/posts/Python-Django-4/
+장고 기초설명
+
+https://defineall.tistory.com/678
+https://www.youtube.com/watch?v=a9jGLTbLR0g
+
+https://www.youtube.com/watch?v=M8UPyeF5DfM&t=218s
+1시간 8분부터 html
+5시간 22
+
+부트스트랩 사이트
+https://getbootstrap.kr/
+
+material design 아이콘 사이트
+https://m3.material.io/styles/icons/overview

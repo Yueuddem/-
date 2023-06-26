@@ -1,0 +1,625 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+    <div class="sub" id="Asr1">
+            <div class="subSection">
+                <div class="subHeader">
+                    <h1 class="subHeader__logo"><span class="subHeader__logo__link">서울성동경찰서</span></h1>
+                    <h2 class="subHeader__tit">지역공동체 치안활성화 주민설문조사</h2>
+                </div>
+                <h3 class="subTitle2"><span>주민 치안안전도 및 <br class="mo--only">범죄예방시설물 선호도 조사</span></h3>
+                <div class="subSection02">
+                    <h4 class="qTitle">
+                        <span class="qTitle__num">1</span>
+                        <div class="qTitle__que tx3">내가 살거나 이용하는 우리 동네가 얼마나 안전하다고 느끼십니까? </div>
+                    </h4>
+                    <ul class="rowLists">
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q1Asr" value="매우 안전하다"><span class="aCheck__label">매우 안전하다</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q1Asr" value="보통이다"><span class="aCheck__label">보통이다</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q1Asr" value="전혀 안전하지 않다"><span class="aCheck__label">전혀 안전하지 않다</span></label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="btmBtn flexSb">
+                <a href="{% url 'survey:survey_info' %}" class="btnTy2">이전</a>
+                <button type="button" class="btnTy1" onclick="q1asr_btn();">다음</button>
+            </div>
+        </div>
+
+        <div class="sub" id="Asr2" style="display: none;">
+            <div class="subSection">
+                <div class="subHeader">
+                    <h1 class="subHeader__logo"><span class="subHeader__logo__link">서울성동경찰서</span></h1>
+                    <h2 class="subHeader__tit">지역공동체 치안활성화 주민설문조사</h2>
+                </div>
+                <h3 class="subTitle2"><span>주민 치안안전도 및 <br class="mo--only">범죄예방시설물 선호도 조사</span></h3>
+                <div class="subSection02">
+                    <h4 class="qTitle">
+                        <span class="qTitle__num">2</span>
+                        <div class="qTitle__que tx3">일상생활 중에 야간 또는 낯선 사람으로부터 범죄피해를 당할까봐 평소에 얼마나 두려움을 느끼십니까?</div>
+                    </h4>
+                    <ul class="rowLists">
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q2Asr" value="전혀 두렵지 않다"><span class="aCheck__label">전혀 두렵지 않다</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q2Asr" value="보통이다"><span class="aCheck__label">보통이다</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q2Asr" value="매우 두렵다"><span class="aCheck__label">매우 두렵다</span></label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="btmBtn flexSb">
+                <button type="button" class="btnTy2" onclick="q1Asr('1')">이전</button>
+                <button type="button" class="btnTy1" onclick="q2asr_btn()">다음</button>
+            </div>
+        </div>
+
+    <div class="sub" id="Asr3" style="display: none;">
+            <div class="subSection">
+                <div class="subHeader">
+                    <h1 class="subHeader__logo"><span class="subHeader__logo__link">서울성동경찰서</span></h1>
+                    <h2 class="subHeader__tit">지역공동체 치안활성화 주민설문조사</h2>
+                </div>
+                <h3 class="subTitle2"><span>주민 치안안전도 및 <br class="mo--only">범죄예방시설물 선호도 조사</span></h3>
+                <div class="subSection02">
+                    <h4 class="qTitle">
+                        <span class="qTitle__num">3</span>
+                        <div class="qTitle__que tx3">
+                            우리동네는 경찰-지자체 협업하여 범죄예방환경조성(CPTED) [1] 사업 진행으로 방범시설물 을 설치했는데 알고 계십니까?
+                            <span class="st">(지능형CCTV, 스마트보안등, 안심거울 등) </span>
+                        </div>
+                    </h4>
+                    <ul class="rowLists">
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q3Asr" value="알고있다"><span class="aCheck__label">알고있다</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q3Asr" value="모른다"><span class="aCheck__label">모른다</span></label>
+                        </li>
+                    </ul>
+                    <div class="rowLists__noti">
+                        <span class="num">[1]</span>
+                        <span class="con">범죄 예방 환경 설계는 건축 환경［built environment］ 설계를 이용해 범죄를 예방하려는 연구 분야로서 아파트ㆍ학교ㆍ공원 등 도시생활공간의 설계 단계부터 범죄를 예방할 수 있도록 다양한 안전시설 및 수단을 적용한 도시계획 및 건축설계를 말한다.
+                            셉테드CPTED 라고도 한다. 범죄학, 건축학, 도시공학 등 학문 응용 분야이다. – 위키백과-</span>
+                    </div>
+                </div>
+            </div>
+            <div class="btmBtn flexSb">
+                <button type="button" class="btnTy2" onclick="q1Asr('2')">이전</button>
+                <button type="button" class="btnTy1" onclick="q3asr_btn()">다음</button>
+            </div>
+        </div>
+
+    <div class="sub" id="Asr4" style="display: none;">
+            <div class="subSection">
+                <div class="subHeader">
+                    <h1 class="subHeader__logo"><span class="subHeader__logo__link">서울성동경찰서</span></h1>
+                    <h2 class="subHeader__tit">지역공동체 치안활성화 주민설문조사</h2>
+                </div>
+                <h3 class="subTitle2"><span>주민 치안안전도 및 <br class="mo--only">범죄예방시설물 선호도 조사</span></h3>
+                <div class="subSection02">
+                    <h4 class="qTitle">
+                        <span class="qTitle__num">4</span>
+                        <div class="qTitle__que tx3">
+                            우리 동네의 경찰활동에 대해 어떻게 생각하십니까?<br>
+                            <span class="st">(순찰 빈도, 범인 검거에 대한 믿음, 질서유지
+                                및 범죄예방을 위한 서비스 제공 등)</span>
+                        </div>
+                    </h4>
+                    <ul class="rowLists">
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q4Asr" value="매우 만족한다"><span class="aCheck__label">매우 만족한다</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q4Asr" value="보통이다"><span class="aCheck__label">보통이다</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q4Asr" value="전혀 만족하지 않는다"><span class="aCheck__label">전혀 만족하지 않는다</span></label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="btmBtn flexSb">
+                <button type="button" class="btnTy2" onclick="q1Asr('3')">이전</button>
+                <button type="button" class="btnTy1" onclick="q4asr_btn()">다음</button>
+            </div>
+        </div>
+
+    <div class="sub" id="Asr5" style="display: none;">
+            <div class="subSection">
+                <div class="subHeader">
+                    <h1 class="subHeader__logo"><span class="subHeader__logo__link">서울성동경찰서</span></h1>
+                    <h2 class="subHeader__tit">지역공동체 치안활성화 주민설문조사</h2>
+                </div>
+                <h3 class="subTitle2"><span>주민 치안안전도 및 <br class="mo--only">범죄예방시설물 선호도 조사</span></h3>
+                <div class="subSection02">
+                    <h4 class="qTitle">
+                        <span class="qTitle__num">5</span>
+                        <div class="qTitle__que tx3">
+                            우리 동네를 안전하게 만들기 위한 여러 대책입니다. <br>
+                            선호하는 대책을 선택해주세요 (2가지)
+                        </div>
+                    </h4>
+                    <ul class="rowLists">
+                        <li class="row">
+                            <label class="aCheck"><input onclick="CountChecked(this)" name="q5Asr" type="checkbox" value="지역주민의 자율방범활동 강화"><span class="aCheck__label">지역주민의 <em>자율방범활동</em> 강화</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input onclick="CountChecked(this)" name="q5Asr" type="checkbox" value="범죄예방을 위한 교육 및 참여 프로그램 운영"><span class="aCheck__label">범죄예방을 위한 <em>교육 및 참여 프로그램</em> 운영</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input onclick="CountChecked(this)" name="q5Asr" type="checkbox" value="길거리를 단정하고 깨끗하게 유지"><span class="aCheck__label">길거리를 단정하고 <em>깨끗하게 유지</em><br>
+                                (쓰레기 투기방지, 전봇대 전단지 부착 방지 등)
+                                </span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input onclick="CountChecked(this)" name="q5Asr" type="checkbox" value="길거리와 공공장소에 경찰 순찰 강화"><span class="aCheck__label">길거리와 공공장소에 <em>경찰 순찰 강화</em></span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input onclick="CountChecked(this)" name="q5Asr" type="checkbox" value="길거리와 공공장소에 비상벨 설치"><span class="aCheck__label">길거리와 공공장소에 <em>비상벨</em> 설치</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input onclick="CountChecked(this)" name="q5Asr" type="checkbox" value="길거리와 공공장소에 디자인을 통한 환경개선"><span class="aCheck__label">길거리와 공공장소에 디자인을 통한 <em>환경개선</em></span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input onclick="CountChecked(this)" name="q5Asr" type="checkbox" value="지역 환경개선 및 개발에 지역주민 참여 증대"><span class="aCheck__label">지역 환경개선 및 개발에 <em>지역주민 참여 증대</em></span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input onclick="CountChecked(this)" name="q5Asr" type="checkbox" value="지역 내 유해시설 및 환경 정비"><span class="aCheck__label">지역 내 <em>유해시설 및 환경 정비</em></span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input onclick="CountChecked(this)" name="q5Asr" type="checkbox" value="공공장소 CCTV 설치"><span class="aCheck__label">공공장소 <em>CCTV 설치</em></span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input onclick="CountChecked(this)" name="q5Asr" type="checkbox" value="청소년을 위한 스포츠나 레저시설 마련"><span class="aCheck__label"><em>청소년</em>을 위한 <em>스포츠나 레저시설</em> 마련</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input onclick="CountChecked(this)" name="q5Asr" type="checkbox" value="길거리 조명을 밝게 유지"><span class="aCheck__label">길거리 <em>조명을 밝게</em> 유지</span></label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="btmBtn flexSb">
+                <button type="button" class="btnTy2" onclick="q1Asr('4')">이전</button>
+                <button type="button" class="btnTy1" onclick="q5asr_btn()">다음</button>
+            </div>
+        </div>
+
+    <div class="sub" id="Asr6" style="display: none;">
+            <div class="subSection">
+                <div class="subHeader">
+                    <h1 class="subHeader__logo"><span class="subHeader__logo__link">서울성동경찰서</span></h1>
+                    <h2 class="subHeader__tit">지역공동체 치안활성화 주민설문조사</h2>
+                </div>
+                <h3 class="subTitle2"><span>주민 치안안전도 및 <br class="mo--only">범죄예방시설물 선호도 조사</span></h3>
+                <div class="subSection02">
+                    <h4 class="qTitle">
+                        <span class="qTitle__num">6</span>
+                        <div class="qTitle__que tx3">
+                            안전한 성동, 범죄예방을 위한 건의 등 자유로운 의견을 작성해 주세요
+                        </div>
+                    </h4>
+                    <div class="textarWrap">
+                        <textarea class="textar" id="q6Asr" placeholder="ex) 사근동10길 골목길이 어두워서 밝게해줬으면 좋겠어요"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="btmBtn flexSb">
+                <button type="button" class="btnTy2" onclick="q1Asr('5')">이전</button>
+                <button type="button" class="btnTy1" onclick="q6asr_btn()">다음</button>
+            </div>
+        </div>
+
+    <div class="sub" id="Asr7" style="display: none;">
+            <div class="subSection">
+                <div class="subHeader">
+                    <h1 class="subHeader__logo"><span class="subHeader__logo__link">서울성동경찰서</span></h1>
+                    <h2 class="subHeader__tit">지역공동체 치안활성화 주민설문조사</h2>
+                </div>
+                <h3 class="subTitle2"><span>다음은 통계처리를 위한 <br class="mo--only">질문입니다. </span></h3>
+                <div class="subSection02">
+                    <h4 class="qTitle">
+                        <span class="qTitle__num">7</span>
+                        <div class="qTitle__que tx3">
+                            귀하의 성별은 무엇인가요?
+                        </div>
+                    </h4>
+                    <ul class="rowLists">
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q7Asr" value="남성"><span class="aCheck__label">남성</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q7Asr" value="여성"><span class="aCheck__label">여성</span></label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="btmBtn flexSb">
+                <button type="button" class="btnTy2" onclick="q1Asr('6')">이전</button>
+                <button type="button" class="btnTy1" onclick="q7asr_btn()">다음</button>
+            </div>
+        </div>
+
+    <div class="sub" id="Asr8" style="display: none;">
+            <div class="subSection">
+                <div class="subHeader">
+                    <h1 class="subHeader__logo"><span class="subHeader__logo__link">서울성동경찰서</span></h1>
+                    <h2 class="subHeader__tit">지역공동체 치안활성화 주민설문조사</h2>
+                </div>
+                <h3 class="subTitle2"><span>다음은 통계처리를 위한 <br class="mo--only">질문입니다. </span></h3>
+                <div class="subSection02">
+                    <h4 class="qTitle">
+                        <span class="qTitle__num">8</span>
+                        <div class="qTitle__que tx3">
+                            귀하의 연령대는 어떻게 되시나요?
+                        </div>
+                    </h4>
+                    <ul class="rowLists">
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q8Asr" value="19세 이하"><span class="aCheck__label">19세 이하</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q8Asr" value="20대"><span class="aCheck__label">20대</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q8Asr" value="30대"><span class="aCheck__label">30대</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q8Asr" value="40대"><span class="aCheck__label">40대</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q8Asr" value="50대"><span class="aCheck__label">50대</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q8Asr" value="60대"><span class="aCheck__label">60대</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q8Asr" value="70대 이상"><span class="aCheck__label">70대 이상</span></label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="btmBtn flexSb">
+                <button type="button" class="btnTy2" onclick="q1Asr('7')">이전</button>
+                <button type="button" class="btnTy1" onclick="q8asr_btn()">다음</button>
+            </div>
+        </div>
+
+    <div class="sub" id="Asr9" style="display: none;">
+            <div class="subSection">
+                <div class="subHeader">
+                    <h1 class="subHeader__logo"><span class="subHeader__logo__link">서울성동경찰서</span></h1>
+                    <h2 class="subHeader__tit">지역공동체 치안활성화 주민설문조사</h2>
+                </div>
+                <h3 class="subTitle2"><span>다음은 통계처리를 위한 <br class="mo--only">질문입니다. </span></h3>
+                <div class="subSection02">
+                    <h4 class="qTitle">
+                        <span class="qTitle__num">9</span>
+                        <div class="qTitle__que tx3">귀하께서 거주하시는 지역은<br class="mo--only"> 어디 인가요?</div>
+                    </h4>
+                    <ul class="rowLists col2">
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q9Asr" value="상왕십리동"><span class="aCheck__label">상왕십리동</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q9Asr" value="금호동1가"><span class="aCheck__label">금호동1가</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q9Asr" value="하왕십리동"><span class="aCheck__label">하왕십리동</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q9Asr" value="금호동 2가"><span class="aCheck__label">금호동 2가</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q9Asr" value="홍익동"><span class="aCheck__label">홍익동</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q9Asr" value="금호동 3가"><span class="aCheck__label">금호동 3가</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q9Asr" value="도선동"><span class="aCheck__label">도선동</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q9Asr" value="금호동 4가"><span class="aCheck__label">금호동 4가</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q9Asr" value="마장동"><span class="aCheck__label">마장동</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q9Asr" value="성수동1가"><span class="aCheck__label">성수동1가</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q9Asr" value="사근동"><span class="aCheck__label">사근동</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q9Asr" value="성수동2가"><span class="aCheck__label">성수동2가</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q9Asr" value="응봉동"><span class="aCheck__label">응봉동</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q9Asr" value="용답동"><span class="aCheck__label">용답동</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q9Asr" value="옥수동"><span class="aCheck__label">옥수동</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q9Asr" value="송정동"><span class="aCheck__label">송정동</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q9Asr" value="행당동"><span class="aCheck__label">행당동</span></label>
+                        </li>
+                        <li class="row">
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="btmBtn flexSb">
+                <button type="button" class="btnTy2" onclick="q1Asr('8')">이전</button>
+                <button type="button" class="btnTy1" onclick="q9asr_btn()">다음</button>
+            </div>
+        </div>
+
+    <div class="sub" id="Asr10" style="display: none;">
+            <div class="subSection">
+                <div class="subHeader">
+                    <h1 class="subHeader__logo"><span class="subHeader__logo__link">서울성동경찰서</span></h1>
+                    <h2 class="subHeader__tit">지역공동체 치안활성화 주민설문조사</h2>
+                </div>
+                <h3 class="subTitle2"><span>다음은 통계처리를 위한 <br class="mo--only">질문입니다. </span></h3>
+                <div class="subSection02">
+                    <h4 class="qTitle">
+                        <span class="qTitle__num">10</span>
+                        <div class="qTitle__que tx3">
+                            귀하의 주거 형태는 어떻게 되나요?
+                        </div>
+                    </h4>
+                    <ul class="rowLists">
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q10Asr" value="단독주택"><span class="aCheck__label">단독주택</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q10Asr" value="연립ㆍ다세대ㆍ다가구 주택"><span class="aCheck__label">연립ㆍ다세대ㆍ다가구 주택</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q10Asr" value="원룸"><span class="aCheck__label">원룸</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q10Asr" value="오피스텔"><span class="aCheck__label">오피스텔</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q10Asr" value="아파트"><span class="aCheck__label">아파트</span></label>
+                        </li>
+                        <li class="row">
+                            <label class="aCheck"><input type="radio" name="q10Asr" value="기타"><span class="aCheck__label">기타</span></label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="btmBtn flexSb">
+                <button type="button" class="btnTy2" onclick="q1Asr('9')">이전</button>
+                <button type="button" class="btnTy1" onclick="q10asr_btn();">다음</button>
+            </div>
+        </div>
+    <div class="layerPopWrap" id="choice_layer" style="display: none;">
+        <div class="dim"></div>
+        <div class="layerPop">
+            <div class="layerPopBody">
+                <div class="layerPop__s1">
+                    <div class="layerPop__img"></div>
+                    <p class="tx">항목을<br> 선택을 해 주세요.</p>
+                </div>
+                <div class="layer__btns">
+                    <button type="button" class="btnTy1"  layer="close">닫기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="layerPopWrap" id="two_layer" style="display: none;">
+        <div class="dim"></div>
+        <div class="layerPop">
+            <div class="layerPopBody">
+                <div class="layerPop__s1">
+                    <div class="layerPop__img"></div>
+                    <p class="tx">2가지 항목을<br> 선택을 해 주세요.</p>
+                </div>
+                <div class="layer__btns">
+                    <button type="button" class="btnTy1"  layer="close">닫기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="layerPopWrap" id="over_layer" style="display: none;">
+        <div class="dim"></div>
+        <div class="layerPop">
+            <div class="layerPopBody">
+                <div class="layerPop__s1">
+                    <div class="layerPop__img"></div>
+                    <p class="tx">의견 작성은<br>200자 까지 가능합니다.</p>
+                </div>
+                <div class="layer__btns">
+                    <button type="button" class="btnTy1"  layer="close">닫기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    function q1Asr(a){
+        $('.sub').hide();
+        $('#Asr'+a).show();
+    }
+    function q1asr_btn(){
+        var q1asr = $('input[name=q1Asr]:checked').val();
+        if (q1asr == null){
+            $('#choice_layer').show();
+        }
+        else {
+            q1Asr('2');
+        }
+    }
+    function q2asr_btn(){
+        var q2asr = $('input[name=q2Asr]:checked').val();
+        if (q2asr == null){
+            $('#choice_layer').show();
+        }
+        else {
+            q1Asr('3');
+        }
+    }
+    function q3asr_btn(){
+        var q3asr = $('input[name=q3Asr]:checked').val();
+        if (q3asr == null){
+            $('#choice_layer').show();
+        }
+        else {
+            q1Asr('4');
+        }
+    }
+    function q4asr_btn(){
+        var q4asr = $('input[name=q4Asr]:checked').val();
+        if (q4asr == null){
+            $('#choice_layer').show();
+        }
+        else {
+            q1Asr('5');
+        }
+    }
+    function q5asr_btn(){
+        var q5asr = $("input[name=q5Asr]:checked").length;
+        var q5asr_list = [];
+        if(q5asr > 1){ //개수를 체크하고 2개부터는 each함수를 통해 각각 가져온다.
+            $("input[name='q5Asr']:checked").each(function(e){
+                q5asr_list.push($(this).val());
+            })
+        }
+        if (q5asr !== 2){
+            $('#two_layer').show();
+        }
+        else {
+            q1Asr('6');
+        }
+    }
+    function q6asr_btn(){
+        var q6asr = $('#q6Asr').val();
+        if (q6asr.length > 200){
+            $('#over_layer').show();
+        }
+        else {
+            q1Asr('7');
+        }
+    }
+    function q7asr_btn(){
+        var q7asr = $('input[name=q7Asr]:checked').val();
+        if (q7asr == null){
+            $('#choice_layer').show();
+        }
+        else {
+            q1Asr('8');
+        }
+    }
+    function q8asr_btn(){
+        var q8asr = $('input[name=q8Asr]:checked').val();
+        if (q8asr == null){
+            $('#choice_layer').show();
+        }
+        else {
+            q1Asr('9');
+        }
+    }
+    function q9asr_btn(){
+        var q9asr = $('input[name=q9Asr]:checked').val();
+        if (q9asr == null){
+            $('#choice_layer').show();
+        }
+        else {
+            q1Asr('10');
+        }
+    }
+    function q10asr_btn(){
+        var q10asr = $('input[name=q10Asr]:checked').val();
+        if (q10asr == null){
+            $('#choice_layer').show();
+        }
+        else {
+            survey_result();
+        }
+    }
+var maxCount = 2;								// 카운트 최대값은 2
+var count = 0;   								// 카운트, 0으로 초기화 설정
+
+function CountChecked(field){ 					// field객체를 인자로 하는 CountChecked 함수 정의
+	if (field.checked) {						// 만약 field의 속성이 checked 라면(사용자가 클릭해서 체크상태가 된다면)
+		count += 1;								// count 1 증가
+	}
+	else {										// 아니라면 (field의 속성이 checked가 아니라면)
+		count -= 1;								// count 1 감소
+	}
+
+	if (count > maxCount) {						// 만약 count 값이 maxCount 값보다 큰 경우라면
+		$('#two_layer').show();	// alert 창을 띄움
+        field.checked = false;						// (마지막 onclick한)field 객체의 checked를 false(checked가 아닌 상태)로 만든다.
+        count -= 1;									// 이때 올라갔던 카운트를 취소처리해야 하므로 count를 1 감소시킨다.
+	}
+}
+
+
+function survey_result() {
+
+
+        let q1asr = $('input[name=q1Asr]:checked').val();
+        let q2asr = $('input[name=q2Asr]:checked').val();
+        let q3asr = $('input[name=q3Asr]:checked').val();
+        let q4asr = $('input[name=q4Asr]:checked').val();
+        var q5asr = $("input[name=q5Asr]:checked").length;
+        var q5asr_list = [];
+        if(q5asr > 1){ //개수를 체크하고 2개부터는 each함수를 통해 각각 가져온다.
+            $("input[name='q5Asr']:checked").each(function(e){
+                q5asr_list.push($(this).val());
+            })
+        }
+        let q5asr_1 = q5asr_list[0];
+        let q5asr_2 = q5asr_list[1];
+        let q6asr = $('#q6Asr').val();
+        let q7asr = $('input[name=q7Asr]:checked').val();
+        let q8asr = $('input[name=q8Asr]:checked').val();
+        let q9asr = $('input[name=q9Asr]:checked').val();
+        let q10asr = $('input[name=q10Asr]:checked').val();
+
+        let param = {
+            'q1asr': q1asr,
+            'q2asr': q2asr,
+            'q3asr': q3asr,
+            'q4asr': q4asr,
+            'q5asr_1': q5asr_1,
+            'q5asr_2': q5asr_2,
+            'q6asr': q6asr,
+            'q7asr': q7asr,
+            'q8asr': q8asr,
+            'q9asr': q9asr,
+            'q10asr': q10asr,
+        }
+        $.ajax({
+            type: 'POST',
+            headers: {
+                'X-CSRFTOKEN': '{{ csrf_token }}'
+            },
+            url: "{% url 'survey:survey' %}",
+            async: true,
+            data: JSON.stringify(param),
+            success: function (data) {
+                $(location).attr("href", "{% url 'survey:survey_end' %}");
+            }
+        });
+    }
+</script>
+{% endblock %}

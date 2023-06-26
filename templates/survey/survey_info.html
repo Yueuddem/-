@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="sub">
+    <div class="subSection">
+        <h1 class="logoArea"><span class="logo">서울성동경찰서</span></h1>
+        <div class="subSection01">
+            <h2 class="subTitle1">
+                <picture>
+                    <source srcset="{% static '/images/s-title-m.png'%}" media="(max-width:1000px)" >
+                    <img src="{% static '/images/s-title.png'%}" alt="지역공동체 치안활성화 주민설문조사" >
+                </picture>
+            </h2>
+            <div class="subSectCont01">
+                <p class="tx3">안녕하십니까? </p>
+                <p class="tx1">성동경찰서는 성동구청과 협업하여 범죄 예방 인프라
+                    구축(CCTV ㆍ가로등 설치 등)으로 범죄 예방 및 주민들의
+                    불안감을 해소토록 노력하고 있으며, 이에 설문조사를
+                    통해 주민들의 의견을 청취, 現 설치된 범죄 예방 인프라
+                    시설을 확인하고 향후 범죄 예방 사업에 반영하고자 합니다.</p>
+                <p class="tx1">설문지에 응답하신 내용은 연구 목적 이외에는 절대
+                    사용되지 않으며, 통계법 제33조(비밀의 보호) 및 제34조
+                    (통계 종사자 등의 의무)에 의거 비밀이 보호되오니
+                    바쁘시더라도 조금만 협조해 주시면 감사하겠습니다.</p>
+                <p class="tx1">평소 선생님께서 느낀 바를 솔직하게 응답하여 주신다면
+                    지역사회의 범죄 예방을 위한 정책을 마련하는 데 귀중한
+                    자료로 활용될 것입니다.
+                    바쁘신 중에 시간을 내어 설문에 협조하여 주신 데 대하여
+                    깊이 감사드립니다.</p>
+                <p class="tx2">성동경찰서 생활안전과</p>
+            </div>
+        </div>
+    </div>
+    <div class="btmBtn">
+        <a href="{% url 'survey:survey' %}" class="btnTy1">다음</a>
+    </div>
+</div>
+{% endblock %}

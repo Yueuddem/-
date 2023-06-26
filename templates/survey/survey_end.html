@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="sub">
+            <div class="subSectionEnd">
+                <h1 class="logoArea"><span class="logo">서울성동경찰서</span></h1>
+                <div class="subSection03">
+                    <picture>
+                        <source srcset="{% static '/images/s-img3-m.png'%}" media="(max-width:1000px)" >
+                        <img src="{% static '/images/s-img3.png'%}" alt="지역공동체 치안활성화 주민설문조사" >
+                    </picture>
+                </div>
+            </div>
+            <div class="btmBtn">
+                <a href="/" class="btnTy1">완료</a>
+            </div>
+        </div>
+
+{% endblock %}
