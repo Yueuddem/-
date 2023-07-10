@@ -9,9 +9,150 @@ https://www.youtube.com/watch?v=a9jGLTbLR0g
 https://www.youtube.com/watch?v=M8UPyeF5DfM&t=218s
 1시간 8분부터 html
 5시간 22
+https://www.youtube.com/watch?v=D9PjOdBGI6s
+48분
+
 
 부트스트랩 사이트
 https://getbootstrap.kr/
 
 material design 아이콘 사이트
 https://m3.material.io/styles/icons/overview
+
+
+EC2환경 대부분 리눅스 우분투 환경으로 설치, git은 설치되어있지만 sudo apt update 해줘야함 
+
+이후 pip 설치까지 해야됨 sudo apt install python3-pip
+
+
+EC2에 포팅할때는 python -m venv venv 으로 가상환경 만들필요없음 
+
+git으로 당겨온다음 패키지설치 하고 migrations하고 migrate
+
+보안 설정해줘야 다른 컴퓨터에서 URL로 접속가능
+
+AWS EC2 서버가서  보안 항목 클릭 보안그룹 클릭
+
+인바운드 규칙(외부에서 내부 접속규칙)
+인바운드 규칙 편집에서 새로운 규칙 추가하여 포트범위 8000설정 (설명칸에 한글넣으면 오류남) 하고 규칙저장
+포트 8000번 열어줌
+
+settings.py 파일 들어가서 Allowed Hosts [] 칸에 '*' 전체유저 포함한다는 아스타표시 추가
+코드가 바뀌였으면 깃 에드 (git add .) 하고  다시 커밋(git commit -m '커밋내용')  푸쉬(git push ) 한다음 
+우분투 git에서 다시 당겨와야됨 git pull
+
+
+nginx, uwsgi 설치하여 정상적인 웹서비스 제공
+
+uwsgi 설치
+pip3 install uwsgi
+
+uwsgi --http :8000 --module Jinstagram.wsgi
+
+nginx 설치
+
+sudo apt-get install nginx
+
+niginx사용하기 위한 80번 포트 AWS EC2서버에서 열어주기
+
+이후 홈경로(cd .. 해줘서)에서 django랑 nginx 연결
+
+사용자 -> nginx -X-> 장고
+
+nginx --- 8000포트 -> uwsgi ->장고 8000
+
+nginx -- soket file -> uwsgi -> 장고
+
+OSI 7계층  -> 4계층 
+
+
+{설정 추가하는 uwsgi.ini문서 추가
+vi uwsgi.ini
+
+
+네트워크 layer 타냐 안타냐의 차이 소켓으로 했을때 좀  빠름
+
+pythonpath 찾기
+find / -name site-packages 2>&1 | grep -v Permission
+쳐주면 권한이 없는것들 제거하고 나옴
+
+[uwsgi]
+socket = /home/ubuntu/uwsgi.sock
+master = true
+processes = 1
+threads = 2
+chdir = /home/ubuntu/django_zero_to_instagram
+module =  Jinstagram/wsgi.py
+chomod-socket = 666
+vacuum = true
+
+logger = file:/tmp/uwsgi.log
+pythonpath = /home/ubuntu/.local/lib/python3.8/site-packages}
+
+{nginx에 설정값들 추가 nginx/sites-available 폴더안 디폴트값 지우고 새로운 값 넣기 
+/etc/nginx/sites-available$ sudo view default
+			    sudo vi default
+
+
+
+upstream django {
+    server unix:///home/ubuntu/uwsgi.sock;
+}
+
+server {
+    listen    80;
+    server_name localhost;
+    charset   utf-8;
+
+    client_max_body_size 80M;
+
+    location / {
+        uwsgi_pass django;
+        include    /etc/nginx/uwsgi_params;
+    }
+}
+
+
+
+이후 systemstl에 등록하기
+cd /lib/systemd/system
+관리자 권한 필요하므로 sudo 꼭 써줘야함
+sudo vi uwsgi.service
+
+
+[Unit]
+Description=Django Zero uWSGI service
+After=syslog.target
+
+[Service]
+ExecStart=/home/ubuntu/.local/bin/uwsgi -i /home/ubuntu/django_zero_to_instagram_devops/uwsgi.ini
+
+Restart=always
+KillSignal=SIGNOUT
+Type=notify
+StandardError=syslog
+NotifyAccess=all
+
+[Install]
+WantedBy=multi-user.target
+
+
+심볼릭 링크(바로가기 같은것) 추가 
+
+cd /etc/systemd/system 경로에 추가할것
+
+
+sudo ln -s {원본파일경로} {링크할파일경로} 여기서 ln은 링크란뜻
+
+sudo ln -s /lib/systemd/system/uwsgi.service uwsgi.service
+
+그렇게하면 ls -rlt 했을때  uwsgi.service -> /lib/systemd/system/uwsgi.service 가 뜸
+
+이제 등록을 하면 되는데
+sudo systemctl daemon-reload
+sudo systemctl eanable uwsgi
+sudo systemctl restart uwsgi
+순서대로 입력하면 됨
+
+
+
